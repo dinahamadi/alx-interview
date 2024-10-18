@@ -5,6 +5,7 @@ of operations required to achieve exactly `n` H characters in a text file, start
 with a single 'H'.
 """
 
+
 def minOperations(n):
     """
     Calculates the fewest number of operations needed to result in exactly n H characters.
