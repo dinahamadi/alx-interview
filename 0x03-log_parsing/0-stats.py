@@ -19,23 +19,26 @@ line_count = 0
 
 try:
     for line in sys.stdin:
+        if line_count != 0 and line_count % 10 == 0:
+            print_statistics(status_codes, total_file_size)
+
         line_count += 1
         parts = line.split()
+
         try:
             total_file_size += int(parts[-1])
         except (IndexError, ValueError):
             pass
+
         try:
             status_code = parts[-2]
             if status_code in status_codes:
                 status_codes[status_code] += 1
         except IndexError:
             pass
-        if line_count % 10 == 0:
-            print_statistics(status_codes, total_file_size)
+
+    print_statistics(status_codes, total_file_size)
 
 except KeyboardInterrupt:
     print_statistics(status_codes, total_file_size)
     raise
-
-print_statistics(status_codes, total_file_size)
