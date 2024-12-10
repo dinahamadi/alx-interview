@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    a script to determine the winner of each game round based on optimal play.
+"""
 
 
 def isWinner(x, nums):
